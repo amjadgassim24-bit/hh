@@ -1,227 +1,82 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أسئلة عن السودان</title>
+<title>Ahmed Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    color: #fff;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(-45deg, #6a0dad, #00ff66, #330066, #00cc44);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(106,13,173,0.6);
-}
-
-h1 {
-    text-align: center;
-    color: #e0b3ff;
-    margin-bottom: 20px;
-}
-
-.question-box {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: rgba(106,13,173,0.3);
-    border-radius: 10px;
-}
-
-.options button {
-    display: block;
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px;
-    background: #6a0dad;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.options button:hover {
-    background: #9b30ff;
-    transform: scale(1.03);
-}
-
-.feedback {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
-}
-
-.correct-effect {
-    box-shadow: 0 0 15px 5px #00ff00 inset;
-    animation: glow 0.5s;
-}
-
-.wrong-effect {
-    box-shadow: 0 0 15px 5px #ff3333 inset;
-    animation: shake 0.5s;
-}
-
-@keyframes glow {
-    0% {box-shadow: 0 0 5px 1px #0f0 inset;}
-    50% {box-shadow: 0 0 20px 5px #0f0 inset;}
-    100% {box-shadow: 0 0 5px 1px #0f0 inset;}
-}
-
-@keyframes shake {
-    0% {transform: translateX(0);}
-    25% {transform: translateX(-5px);}
-    50% {transform: translateX(5px);}
-    75% {transform: translateX(-5px);}
-    100% {transform: translateX(0);}
-}
-
-.progress-bar {
-    width: 100%;
-    background: rgba(255,255,255,0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    height: 20px;
-}
-
-.progress {
-    height: 100%;
-    width: 0%;
-    background: #6a0dad;
-    transition: 0.5s;
-}
-
-.footer {
-    text-align: right;
-    color: #e0b3ff;
-    font-weight: bold;
-    font-size: 14px;
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{background-color:#121212;font-family:'Poppins',sans-serif;color:#fff;}
+.header{display:flex;align-items:center;justify-content:space-between;padding:15px 25px;color:#fff;background-color:#000;position:fixed;top:0;left:0;right:0;z-index:999;}
+.navigation{position:fixed;top:0;right:0;padding:1rem 2rem;background-color:black;z-index:1000;}
+.navigation ul{display:flex;list-style:none;gap:3rem;justify-content:flex-end;margin:0;padding:0;}
+.navigation a{color:white;text-decoration:none;font-weight:600;font-size:16px;position:relative;transition:all 0.3s ease;display:inline-block;}
+.navigation a:hover{color:#edf8f8;transform:translateY(-5px) scale(1.05);}
+.navigation a:active{transform:translateY(2px) scale(0.95);}
+.hero{display:flex;justify-content:space-between;align-items:center;height:100vh;margin-top:80px;padding:0 50px;}
+.hero-text{max-width:50%;font-size:2rem;line-height:1.5;color:#e7eeee;font-weight:700;opacity:0;transform:translateY(20px);animation:textAppear 1s ease forwards;animation-delay:0.3s;transition:all 0.3s ease;}
+.hero-text:hover{color:#f1fdfd;text-shadow:0 0 10px #f1f8f8;transform:scale(1.05);}
+@keyframes textAppear{to{opacity:1;transform:translateY(0);}}
+.hero img{width:150px;height:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.3);animation:danishMove 4s ease-in-out infinite alternate;}
+@keyframes danishMove{0%{transform:translate(0px,0px);}25%{transform:translate(-5px,5px);}50%{transform:translate(0px,10px);}75%{transform:translate(5px,5px);}100%{transform:translate(0px,0px);}}
+#aboutme-section,#myworks-section{display:none;padding:30px;margin:20px 50px;border-radius:10px;background-color:#1a1a1a;box-shadow:0 4px 15px rgba(0,0,0,0.4);opacity:0;animation:fadeIn 0.5s ease forwards;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+#aboutme-section ul,#myworks-section ul{line-height:1.8;color:#edfafa;}
+#aboutme-section button,#myworks-section button{margin-top:15px;padding:8px 15px;background:#00ffff;color:#000;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
+#aboutme-section button:hover,#myworks-section button:hover{background:#f4fafa;}
 </style>
 </head>
 <body>
-<div class="container">
-    <h1>أسئلة عن السودان</h1>
-    <div class="progress-bar">
-        <div class="progress" id="progress"></div>
-    </div>
-    <div id="quiz"></div>
-    <div class="footer">برمجة من أحمد قاسم</div>
+
+<header class="header">
+<h1>Ahmed Portfolio</h1>
+</header>
+
+<nav class="navigation">
+<ul>
+<li><a href="#" onclick="showSection('aboutme-section')">About me</a></li>
+<li><a href="#" onclick="showSection('myworks-section')">My Works</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-text">hello iam ahmed 
 </div>
+<img src="oo.png" alt="Small drawing on the side">
+</section>
+
+<section id="aboutme-section">
+<h2>About Me</h2>
+<ul>
+<li>Learning HTML, CSS, and JavaScript</li>
+<li>Created one project: "Questions about Sudan" website</li>
+<li>Enjoy experimenting with effects and animations</li>
+<li>Aspiring to develop more skills in web development</li>
+</ul>
+<button onclick="hideSection('aboutme-section')">Close</button>
+</section>
+
+<section id="myworks-section">
+<h2>My Works</h2>
+<ul>
+<li>No works yet.</li>
+</ul>
+<button onclick="hideSection('myworks-section')">Close</button>
+</section>
 
 <script>
-// 25 سؤال عن السودان
-const questions = [
-{q:"ما هي عاصمة السودان؟", options:["الخرطوم","أم درمان","كسلا","بورسودان"], a:"الخرطوم"},
-{q:"أي نهر يمر عبر السودان؟", options:["النيل","الأمازون","الدانوب","السنغال"], a:"النيل"},
-{q:"ما هي العملة الرسمية للسودان؟", options:["جنيه سوداني","دولار","ريال","دينار"], a:"جنيه سوداني"},
-{q:"أي مدينة تعرف بأنها أكبر مدينة في السودان؟", options:["الخرطوم","أم درمان","كسلا","بورسودان"], a:"الخرطوم"},
-{q:"ما هو الساحل الشرقي للسودان؟", options:["البحر الأحمر","البحر المتوسط","المحيط الأطلسي","بحر العرب"], a:"البحر الأحمر"},
-{q:"ما اسم النهر الذي يلتقي فيه النيل الأزرق بالنيل الأبيض؟", options:["الخرطوم","أم درمان","سنار","ود مدني"], a:"الخرطوم"},
-{q:"في أي ولاية تقع مدينة كسلا؟", options:["كسلا","الخرطوم","نهر النيل","سنار"], a:"كسلا"},
-{q:"ما هي لغة السودان الرسمية؟", options:["العربية","الإنجليزية","الفرنسية","الأمهرية"], a:"العربية"},
-{q:"ما هي أكبر صحراء في السودان؟", options:["الصحراء الكبرى","صحراء النوبة","الصحراء الشرقية","صحراء دارفور"], a:"الصحراء الكبرى"},
-{q:"ما هي المدينة التي تعرف بمدينة الثقافة؟", options:["أم درمان","الخرطوم","بورسودان","كسلا"], a:"أم درمان"},
-{q:"أين تقع مدينة بورسودان؟", options:["على البحر الأحمر","في دارفور","في نهر النيل","في كسلا"], a:"على البحر الأحمر"},
-{q:"ما هي أهم صادرات السودان؟", options:["القطن","النفط","الذهب","القمح"], a:"الذهب"},
-{q:"ما اسم أعلى جبل في السودان؟", options:["جبل مرة","جبل بركل","جبل مرة الكبرى","جبل جبل البركل"], a:"جبل مرة"},
-{q:"ما هي عاصمة ولاية دارفور الغربية؟", options:["الفاشر","الخرطوم","جنينة","كادقلي"], a:"الفاشر"},
-{q:"أين تقع مدينة الجنينة؟", options:["غرب السودان","شرق السودان","وسط السودان","شمال السودان"], a:"غرب السودان"},
-{q:"ما هو الحيوان الوطني للسودان؟", options:["النعامة","الأسد","الفهد","الجاموس"], a:"النعامة"},
-{q:"ما هي عاصمة ولاية نهر النيل؟", options:["أبو حمد","الخرطوم","ربك","ود مدني"], a:"أبو حمد"},
-{q:"ما اسم أكبر ميناء في السودان؟", options:["ميناء بورتسودان","ميناء الخرطوم","ميناء كسلا","ميناء أم درمان"], a:"ميناء بورتسودان"},
-{q:"أي ولاية تعرف بأنها ولاية الجبال؟", options:["كسلا","الخرطوم","نهر النيل","سنار"], a:"كسلا"},
-{q:"ما اسم أكبر صحراء في دارفور؟", options:["صحراء دارفور","الصحراء الكبرى","صحراء النوبة","الصحراء الشرقية"], a:"صحراء دارفور"},
-{q:"أي مدينة تعرف بأنها عاصمة الثورة السودانية 2019؟", options:["الخرطوم","أم درمان","بحري","كسلا"], a:"الخرطوم"},
-{q:"ما هي أكبر جزيرة في السودان؟", options:["جزيرة سواكن","جزيرة توتي","جزيرة بورسودان","جزيرة أم درمان"], a:"جزيرة توتي"},
-{q:"ما هي المدينة التي تعرف بمدينة الذهب؟", options:["هارتي","الفاشر","كسلا","بورسودان"], a:"هارتي"},
-{q:"أي نهر هو الفرع الرئيسي للنيل الأبيض في السودان؟", options:["نهر عطبرة","نهر الدندر","نهر السبلتا","نهر الأبيض"], a:"نهر الدندر"},
-{q:"ما اسم العاصمة الاقتصادية للسودان؟", options:["الخرطوم","بورسودان","أم درمان","سنار"], a:"الخرطوم"},
-{q:"أين تقع مدينة الأبيض؟", options:["دارفور","كسلا","نهر النيل","سنار"], a:"دارفور"}
-];
-
-function shuffle(array) {
-    for (let i = array.length -1; i>0; i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+function showSection(id){
+document.getElementById(id).style.display='block';
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-
-let current = 0;
-let score = 0;
-const quizDiv = document.getElementById('quiz');
-const progress = document.getElementById('progress');
-
-function showQuestion(index){
-    const q = questions[index];
-    const shuffledOptions = shuffle([...q.options]);
-    let optionsHTML = "";
-    shuffledOptions.forEach(opt=>{
-        optionsHTML += `<button onclick="checkAnswer(this,'${opt}')">${opt}</button>`;
-    });
-    quizDiv.innerHTML = `
-        <div class="question-box">
-            <div class="q-text">${index+1}. ${q.q}</div>
-            <div class="options">${optionsHTML}</div>
-            <div class="feedback" id="feedback"></div>
-        </div>
-    `;
+function hideSection(id){
+document.getElementById(id).style.display='none';
 }
-
-function checkAnswer(button, selected){
-    const feedback = document.getElementById('feedback');
-    const buttons = document.querySelectorAll('.options button');
-    buttons.forEach(btn=> btn.disabled = true);
-    if(selected === questions[current].a){
-        score++;
-        feedback.textContent = "✅ إجابة صحيحة!";
-        feedback.className = "feedback correct";
-        button.classList.add('correct-effect');
-    } else {
-        feedback.textContent = `❌ إجابة خاطئة! الإجابة الصحيحة: ${questions[current].a}`;
-        feedback.className = "feedback wrong";
-        button.classList.add('wrong-effect');
-        buttons.forEach(btn=>{
-            if(btn.textContent === questions[current].a){
-                btn.classList.add('correct-effect');
-            }
-        });
-    }
-    current++;
-    progress.style.width = `${(current/questions.length)*100}%`;
-    if(current < questions.length){
-        setTimeout(()=> showQuestion(current), 1500);
-    } else {
-        setTimeout(()=> quizDiv.innerHTML = `<h2>لقد أجبت صحيحًا ${score} من ${questions.length}</h2>`,1500);
-    }
-}
-
-showQuestion(current);
 </script>
+
 </body>
 </html>
+
+
